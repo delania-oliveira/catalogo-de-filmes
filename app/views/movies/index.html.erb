@@ -1,0 +1,15 @@
+<h1>Filmes:</h1>
+<%if @movies.length == 0%>
+  <h3>Ainda não existe nenhum filme cadastrado. 
+    <%=link_to "Clique aqui para cadastrar um novo filme", new_movie_path%></h3>
+<%else%>
+  <%@movies.each do |movie|%>
+    <h2><%=link_to movie.title, movie%></h2>
+    <%if movie.release_date < DateTime.now%>
+      <p><strong>Lançado:</strong> <%=movie.release_date.strftime("%a, %e %b %Y")%></p>
+    <%else%>
+      <p><strong>Lançamento</strong> <%=movie.release_date%></p>
+    <%end%>
+  <%end%>
+  <h3><%=link_to "Cadastrar novo filme", new_movie_path%></h3>
+<%end%>

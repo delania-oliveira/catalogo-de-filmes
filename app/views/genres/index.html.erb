@@ -1,0 +1,10 @@
+<h1>Gêneros:</h1>
+<%if @genres.length == 0 %>
+  <h3>Ainda não existe nenhum gênero cadastrado. 
+  <%= link_to "Clique aqui para cadastrar um novo gênero", new_genre_path %></h3>
+<%else%>
+  <%@genres.each do |genre|%>
+    <%= link_to genre.name, genre %>
+  <%end%>
+  <h3><%= link_to "Cadastrar novo gênero", new_genre_path %></h3>
+<%end%>

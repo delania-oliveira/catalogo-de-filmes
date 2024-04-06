@@ -1,0 +1,10 @@
+<h1>Diretores</h1>
+<%if @directors.length == 0 %>
+  <h3>Ainda não existe nenhum diretor cadastrado. 
+    <%= link_to "Clique aqui para cadastrar um novo diretor", new_director_path %></h3>
+<%else%>
+  <% @directors.each do |director| %>
+    <%= link_to director.name, director %>
+  <%end%>
+  <h3><%= link_to "Cadastrar novo diretor", new_director_path %></h3>
+<%end%>

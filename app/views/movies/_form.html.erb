@@ -1,0 +1,31 @@
+<%= form_with model: @movie do | f | %>
+  <div>
+    <%= f.label 'Título:' %>
+    <%= f.text_field :title %>
+  </div>
+  <div>
+    <%= f.label 'Data de Lançamento:' %>
+    <%= f.date_field :release_date  %>
+  </div>
+  <div>
+    <%= f.label 'Sinopse:' %>
+    <%= f.text_area :synopsis %>
+  </div>
+  <div>
+    <%= f.label 'País de Origem:' %>
+    <%= f.text_field :country %>
+  </div>
+  <div>
+    <%= f.label 'Duração:' %>
+    <%= f.number_field :time, :placeholder => 'Em minutos' %>
+  </div>
+  <div>
+    <%= f.label 'Diretor:' %>
+    <%= f.collection_select :director_id, Director.all, :id, :name %>
+  </div>
+  <div>
+    <%= f.label 'Gênero:' %>
+    <%= f.collection_select :genre_id, Genre.all, :id, :name %>
+  </div>
+  <%= f.submit 'Cadastrar' %>
+<%end%>

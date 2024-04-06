@@ -1,0 +1,5 @@
+<h1>Cadastrar novo gênero</h1>
+<%= form_for Genre.new do |f| %>
+  <%= f.text_field :name, :placeholder => 'Ex: Sci-fi' %>
+  <%= f.submit 'Enviar' %>
+<%end%>
